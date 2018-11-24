@@ -10,4 +10,4 @@ regulatory_graph.add_node(fda.empty)
 for index, k_number in enumerate(sorted(db_510k["KNUMBER"].unique())):
     if index % 10000 == 0:
         print(index, k_number)
-    fda.populate_graph(regulatory_graph, fda.FDAApproval(k_number))
+    fda.populate_predicates(regulatory_graph, fda.FDAApproval(k_number))
