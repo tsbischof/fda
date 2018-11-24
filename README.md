@@ -6,10 +6,10 @@ Medical devices regulated by the FDA fall into various classifications based on 
 Any given device may have several predicate devices, leading back through their own predicate devices, and so on. Here we trace a given device's ancestry through the approval process, until we either arrive at the original device or the end of the documentation (more likely).
 
 As an example, here is the ancestry of a venous catheter ([K081113](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K081113)):
-![K081113](https://github.com/tsbischof/fda/examples/K081113.png)
+![K081113](examples/K081113.png?raw=True)
 
 Now, that catheter has since been used in the ancestry for a version of the Da Vinci robotic surgical system ([K173585](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K173585)). It is the little branch off to the left:
-![K173585](https://github.com/tsbischof/fda/examples/K173585.png)
+![K173585](examples/K173585.png?raw=True)
 
 ## Usage
 ### Dependencies
