@@ -7,7 +7,8 @@ import pandas
 
 import fda
 
-def get_510k_db(root_dir=os.path.join(fda.root_db_dir, "510k")):
+def get_510k_db(root_dir=os.path.join(fda.root_db_dir, "510k"), 
+                force_download=False):
     if not os.path.exists(root_dir):
         os.makedirs(root_dir)
         
@@ -20,14 +21,16 @@ def get_510k_db(root_dir=os.path.join(fda.root_db_dir, "510k")):
         "http://www.accessdata.fda.gov/premarket/ftparea/pmn7680.zip"
     ]
     
-    db = pandas.concat(map(lambda url: load_510k_db(url, root_dir), db_urls))
+    db = pandas.concat(map(lambda url: load_510k_db(url, root_dir, 
+                                                    force_download=force_download), 
+                           db_urls))
     db = db.drop_duplicates().reset_index().drop("index", axis=1)
     return(db)
 
-def load_510k_db(url, root_dir):
+def load_510k_db(url, root_dir, force_download=False):
     db_filename = os.path.join(root_dir, os.path.basename(url))
 
-    if not os.path.exists(db_filename):
+    if force_download or not os.path.exists(db_filename):
         urllib.request.urlretrieve(url, db_filename)
     
     frames = list()

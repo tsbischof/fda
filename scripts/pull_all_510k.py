@@ -1,8 +1,10 @@
+#!/usr/bin/env python3
+
 import networkx
 
 import fda
 
-db_510k = fda.db.get_510k_db()
+db_510k = fda.db.get_510k_db(force_download=True)
 
 regulatory_graph = networkx.DiGraph()
 regulatory_graph.add_node(fda.empty)
